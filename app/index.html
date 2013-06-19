@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>QoS Analyzer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+        	body {padding-top: 60px; padding-bottom: 40px;}
+			.line {
+				fill: none;
+				stroke: #000;
+				stroke-width: 1.5px;
+			}
+			.axis path, .axis line {
+				fill: none;
+				stroke: #000;
+				shape-rendering: crispEdges;
+			}
+			svg {
+				font: 10px sans-serif;
+			}       
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        
+   
+    </head>
+    <body>
+
+        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">QoS Analyzer</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+			<div class="row-fluid">
+				<div class="span6">
+					<fieldset class="form-horizontal">
+						<legend>Configurações</legend>
+						
+						<div class="control-group">
+							<label class="control-label">URL de destino</label>
+							<div class="controls">
+								<input id="servidor" type="text" placeholder="URL destino">
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label">Requisições</label>
+							<div class="controls">
+								<input id="total_requisicoes" type="text" class="input-mini" placeholder="Requisições">
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label">Repetições</label>
+							<div class="controls">
+								<input id="total_repeticoes" type="text" class="input-mini" placeholder="Repetições">
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<div class="controls">
+								<button type="button" onclick="analisar();" class="btn"><i class="icon-eye-open"></i> Analisar</button>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			
+			<hr/>
+			
+			<div class="row-fluid">
+				<h2>Resultados: </h2>
+				<div id="chart_div" style="width: 100%; height: 340px;"></div>
+			</div>
+			
+            <footer><p>&copy; 2013</p></footer>
+
+        </div> <!-- /container -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script src="http://localhost:8282/socket.io/socket.io.js"></script>
+        <script src="js/main.js"></script>    
+    </body>
+</html>
